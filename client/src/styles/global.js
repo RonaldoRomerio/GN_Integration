@@ -38,6 +38,9 @@ export default createGlobalStyle`
     .InputForm input, .InputForm .spanError, .InputForm label{
         width: 100%;
     }
+    button{
+        cursor: pointer;
+    }
     .tam4{
         width: 23%;
     }
