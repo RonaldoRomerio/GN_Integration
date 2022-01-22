@@ -12,10 +12,10 @@ export default function Input({nome, classe, label, ...rest}) {
     })
   }, [fieldName, registerField])
   return (
-    <div className={classe}>
+    <div className= {classe + " InputForm"}>
       <label>{label}</label>
       <InputMask ref={refInput} defaultValue={defaultValue} {...rest} />
-      <span>{error && error}</span>
+      <span class="spanError">{error && error} testando com grande nome</span>
     </div>
   );
 }
