@@ -56,4 +56,14 @@ export default createGlobalStyle`
     .tam1m2{
         width: 75%;
     }
+    .container{
+        height: 88vh;
+        width: 100%;
+        padding:40px;
+        border-radius: 5px;
+        background-color: #000;
+        opacity: 0.3;
+        border: red;
+        margin: 50px 10px 50px 50px;
+    }
 `
