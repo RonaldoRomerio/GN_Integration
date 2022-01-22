@@ -59,11 +59,10 @@ export default createGlobalStyle`
     .container{
         height: 88vh;
         width: 100%;
-        padding:40px;
+        padding:20px;
         border-radius: 5px;
-        background-color: #000;
-        opacity: 0.3;
+        background-color: rgba(0,0,0,0.3);
         border: red;
-        margin: 50px 10px 50px 50px;
+        margin: 50px 10px 0px 50px;
     }
 `
