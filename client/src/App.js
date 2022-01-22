@@ -1,16 +1,18 @@
+import { useState } from 'react';
 import './App.css';
-import {ThemeProvider} from 'styled-components';
-import {darkTheme, LightTheme} from './styles/theme.js'
 import GlobalStyles from './styles/global.js'
 import Menu from './components/Menu'
+import PgFatura from './pages/PgFatura';
+import ThemeProviderContext from './contexts/ThemeContext.js';
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProviderContext>
       <GlobalStyles/>
       <div className="App">
         <Menu/>
+        <PgFatura/>
       </div>
-    </ThemeProvider>
+    </ThemeProviderContext>
   );
 }
 
