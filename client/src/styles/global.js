@@ -31,6 +31,13 @@ export default createGlobalStyle`
         color: ${(props) => props.theme.colors.color};
         font-size: 10pt;
     }
+    fieldset{
+        color: ${(props) => props.theme.colors.color};
+        font-weight: bolder;
+        text-transform: uppercase;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
     .InputForm{
         text-align: left;
         padding: 10px
@@ -41,28 +48,27 @@ export default createGlobalStyle`
     button{
         cursor: pointer;
     }
-    .tam4{
-        width: 23%;
-    }
-    .tam2{
-        width: 47%;
-    }
-    .tam1{
-        width: 100%;
-    }
-    .tam2{
-        width: 47%;
-    }
-    .tam1m2{
-        width: 75%;
-    }
     .container{
         height: 88vh;
         width: 100%;
         padding:20px;
         border-radius: 5px;
         background-color: rgba(0,0,0,0.3);
-        border: red;
+        border: 1px 1px solid red;
         margin: 50px 10px 0px 50px;
+        display: block;
+    }
+    form button[type="submit"]{
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        background-color: ${(props) => props.theme.colors.color};
+        color: ${(props) => props.theme.colors.textInput};
+        width: 15%;
+        height: 32px;
+        font-weight: bold;
+        font-size: 14pt;
+        float: right;
+        margin-top: 5px;
     }
 `
