@@ -1,0 +1,32 @@
+{
+  "name": "gn_integration",
+  "version": "1.0.0",
+  "description": "Integracao com servicos Gerencianet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RonaldoRomerio/GN_Integration.git"
+  },
+  "keywords": [
+    "Integracao",
+    "financeiro",
+    "API"
+  ],
+  "author": "Ronaldo Romerio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RonaldoRomerio/GN_Integration/issues"
+  },
+  "homepage": "https://github.com/RonaldoRomerio/GN_Integration#readme",
+  "dependencies": {
+    "sequelize": "^6.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "sequelize-cli": "^6.4.1"
+  }
+}
