@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Titulo = styled.span`
-    color: ${((props) => props.theme.colors.color)};
+    color: ${((props) => props.theme.colors.Text)};
     font-size: 25pt;
     font-weight: bolder;
 `

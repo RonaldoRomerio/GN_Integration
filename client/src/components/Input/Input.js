@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {useField} from '@unform/core';
 import InputMask from "react-input-mask";
-export default function Input({nome, label, ...rest}) {
+export default function Input({nome, label, classe, ...rest}) {
   const refInput = useRef(null);
   const {fieldName, registerField, defaultValue, error} = useField(nome)
   useEffect(()=>{
@@ -12,7 +12,7 @@ export default function Input({nome, label, ...rest}) {
     })
   }, [fieldName, registerField])
   return (
-    <div className= "InputForm">
+    <div className= {classe + " InputForm"}>
       <label>{label}</label>
       <InputMask ref={refInput} defaultValue={defaultValue} {...rest} />
       <span class="spanError">{error && error}</span>

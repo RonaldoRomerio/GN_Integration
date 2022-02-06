@@ -1,16 +1,16 @@
-import { useState } from 'react';
 import './App.css';
 import GlobalStyles from './styles/global.js'
-import Menu from './components/Menu'
-import PgFatura from './pages/PgFatura';
+import Rotas from './Routes';
 import ThemeProviderContext from './contexts/ThemeContext.js';
+import Header from './components/Header';
+
 function App() {
   return (
     <ThemeProviderContext>
       <GlobalStyles/>
+      <Header/>
       <div className="App">
-        <Menu/>
-        <PgFatura/>
+        <Rotas/>
       </div>
     </ThemeProviderContext>
   );
