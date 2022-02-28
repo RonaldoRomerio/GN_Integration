@@ -13,7 +13,8 @@ const opcoes = [
     { value: 'MG', label: 'MG' },{ value: 'PA', label: 'PA' },{ value: 'PB', label: 'PB' },{ value: 'PR', label: 'PR' },
     { value: 'PE', label: 'PE' },{ value: 'PI', label: 'PI' },{ value: 'RJ', label: 'RJ' },{ value: 'RN', label: 'RN' },
     { value: 'RS', label: 'RS' },{ value: 'RO', label: 'RO' },{ value: 'RR', label: 'RR' },{ value: 'SC', label: 'SC' },
-    { value: 'SC', label: 'SC' },{ value: 'SE', label: 'SE' },{ value: 'TO', label: 'TO' }];
+    { value: 'SC', label: 'SC' },{ value: 'SE', label: 'SE' },{ value: 'TO', label: 'TO' }
+];
 
 const formRef = useRef(null);
 
@@ -45,12 +46,12 @@ return (
                 <Input nome="nome" classe="cl2" label="nome"  required/>
                 <Input nome="cpf" classe="cl1" label="cpf" mask="999.999.999-99" required/>
                 <Input nome="rg"  classe="cl1" label="rg" type="number" required/>
-                <Input nome="e-mail" classe="cl2" label="e-mail" type="email" required/>
+                <Input nome="email" classe="cl2" label="e-mail" type="email" required/>
                 <Input nome="telefone" classe="cl1"label="telefone" mask="(99)99999-9999" required/>
                 <Scope path='Endereco'>
                     <Input nome="cep" classe="cl1" label="cep" mask="99.999-999" required onBlur={((e) => consultaCEP())}/>
                     <Input nome="Rua" classe="cl3" label="Rua" required/>
-                    <Input nome="Número" classe="cl1" label="Número" type="number" required/>
+                    <Input nome="Numero" classe="cl1" label="Número" type="number" required/>
                     <Input nome="Bairro" classe="cl1" label="Bairro" required/>
                     <Input nome="Cidade" classe="cl2" label="Cidade" required/>
                     <SelectBasic nome="Estado" classe="cl1" label="Estado" options={opcoes}/>
