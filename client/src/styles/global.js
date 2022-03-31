@@ -13,14 +13,14 @@ export default createGlobalStyle`
     }
     body{
         background-color: ${(props) => props.theme.backGround.color};
+
     }
-    input{
+    input, select{
         height:35px;
         border: 3px solid ${(props) => props.theme.input.border};
         border-radius: 10px;
         color: ${(props) => props.theme.input.textInput};
         background-color: ${(props) => props.theme.backGround.color};
-        font-size: 12pt;
     }
     label{
         color: ${(props) => props.theme.colors.Text};
@@ -46,7 +46,12 @@ export default createGlobalStyle`
         text-align: left;
         padding: 10px
     }
-    .InputForm input, .InputForm .spanError, .InputForm label{
+    select{
+        text-align: left;
+        padding: 0;
+        font-size: 12pt;
+    }
+    .InputForm input, .InputForm .spanError, .InputForm label, select{
         width: 100%;
     }
     button{
@@ -101,5 +106,52 @@ export default createGlobalStyle`
     .cl6{
         grid-column: span 5;
         align-self: stretch;
+    }
+    ::-webkit-scrollbar {
+        width: 12px;               /* width of the entire scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.3);        /* color of the tracking area */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: ${(props) => props.theme.button.backGroundGradient1};    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+    }
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    .tabela{
+        margin-top: 50px;
+        height: 50px;
+    }
+    .buttonList button{
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        background: rgba(0,0,0,0.5);
+        margin-right: 5px;
+    }
+    table{
+        width: 100%;
+        color: ${(props) => props.theme.button.textInput};
+        border: 1px solid ${(props) => props.theme.input.border};
+        border-radius: 10px;
+        padding: 5px;
+    }
+    thead tr th{
+        border-bottom: 3px solid ${(props) => props.theme.input.border};
+        padding-bottom: 5px;
+    }
+    tbody tr{
+        height: 30px;
+        margin-bottom: 3px;
+    }
+    tbody tr:nth-child(odd){
+        background: rgba(0,0,0,0.3);
+    }
+    tbody tr:nth-child(even){
+        background: rgba(100,100,100,0.3);
     }
 `

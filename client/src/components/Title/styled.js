@@ -16,3 +16,15 @@ export const Divisao = styled.div`
     background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 `
+export const Button = styled.button`
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-right: 10px;
+`
+export const ButtonHeader = styled.div`
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+`
