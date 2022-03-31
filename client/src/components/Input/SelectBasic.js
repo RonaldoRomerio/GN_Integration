@@ -54,7 +54,7 @@ export default function SelectBasic({ nome, label, classe, ...rest }) {
         <div className= {classe + " InputForm"}>
             <label>{label}</label>
             <ReactSelect defaultValue={defaultValue} ref={selectRef} classNamePrefix="react-select" styles={customStyles} {...rest} />
-            <span class="spanError">{error && error}</span>
+            <span className="spanError">{error && error}</span>
         </div>
     );
 };
