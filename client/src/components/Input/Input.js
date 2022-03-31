@@ -15,7 +15,7 @@ export default function Input({nome, label, classe, ...rest}) {
     <div className= {classe + " InputForm"}>
       <label>{label}</label>
       <InputMask ref={refInput} defaultValue={defaultValue} {...rest} />
-      <span class="spanError">{error && error}</span>
+      <span className="spanError">{error && error}</span>
     </div>
   );
 }
