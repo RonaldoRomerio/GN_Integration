@@ -28,7 +28,7 @@ export const LightTheme = {
         textInput: '#000'
     },
     backGround:{
-        color: '#EFEFEF',
+        color: '#D9DBDF',
         divider: '#D65A31',
         colorSideBar: '#8A8D91',
         borderSideBar: '#D65A31',

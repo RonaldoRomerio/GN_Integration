@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    position: sticky;
     width: 5%;
     height: 92vh;
     background-color: ${(props) => props.theme.backGround.colorSideBar};

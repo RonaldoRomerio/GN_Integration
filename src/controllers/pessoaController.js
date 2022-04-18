@@ -4,7 +4,8 @@ const Pessoa = require('../models/Pessoa');
 module.exports = {
     async insert(req, res) {
         const {nome, cpf, rg, email,
-                telefone, endereco} = req.body
+                telefone, endereco} = req.body;
+        console.log(endereco);
         const pessoaDao = await Pessoa.create({
             nome_pessoa: nome,
             cpf_pessoa: cpf,
@@ -20,8 +21,7 @@ module.exports = {
             endereco_complemento_pessoa: endereco.complemento,
         })
         return (res.json({
-            "status_code":200,
-            "data": pessoaDao
+            "pessoa": pessoaDao
         }))
     },
     async update(req, res) {
@@ -48,19 +48,19 @@ module.exports = {
         pessoaDao.save()
 
         return (res.json({
-            "status_code":200,
-            "data": pessoaDao
+            "pessoa": pessoaDao
         }))
     },
     async selectAll(req, res) {
         
+        console.log('Selecao Encontrada')
+
         const lstpessoas = await Pessoa.findAll({
             where:{deleted_at : null}
         });
 
         return (res.json({
-            "status_code":200,
-            "data": lstpessoas
+            "pessoas": lstpessoas
         }))
     },
     async selectOne(req, res) {
@@ -68,10 +68,8 @@ module.exports = {
         const {id} = req.params;
 
         const pessoaDao = await Pessoa.findByPk(id);
-
         return (res.json({
-            "status_code":200,
-            "data": pessoaDao
+            "pessoa": pessoaDao
         }))
     },
     async deleted(req, res) {
@@ -85,10 +83,7 @@ module.exports = {
         pessoaDao.save();
 
         return (res.json({
-            "status_code":200,
-            "data":{
-                id : id
-            }
+            "idPessoa":id
         }))
     }
 }
