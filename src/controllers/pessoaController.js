@@ -68,7 +68,6 @@ module.exports = {
         const {id} = req.params;
 
         const pessoaDao = await Pessoa.findByPk(id);
-
         return (res.json({
             "pessoa": pessoaDao
         }))
@@ -84,9 +83,7 @@ module.exports = {
         pessoaDao.save();
 
         return (res.json({
-            "idPessoa":{
-                id : id
-            }
+            "idPessoa":id
         }))
     }
 }

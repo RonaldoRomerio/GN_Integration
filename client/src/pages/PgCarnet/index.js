@@ -2,7 +2,7 @@ import { Form } from '@unform/web';
 import React, {useRef} from 'react';
 import Title from '../../components/Title'
 import Input from '../../components/Input/Input'
-export default function Carnet() {
+export default function PgCarnet() {
 
   const formRef = useRef(null);
   return (

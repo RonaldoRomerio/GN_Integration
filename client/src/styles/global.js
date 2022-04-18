@@ -58,14 +58,24 @@ export default createGlobalStyle`
         cursor: pointer;
     }
     .container{
-        height: 88vh;
+        height: 100%;
         width: 100%;
         padding:20px;
         border-radius: 5px;
-        background-color: rgba(0,0,0,0.3);
+        background-color: rgba(0,0,0,0.0);
         border: 1px 1px solid red;
         margin: 20px 10px 0px 20px;
         display: block;
+    }
+    .containerModal{
+        width: 80%;
+        padding:20px;
+        border-radius: 15px;
+        background-color: ${(props) => props.theme.backGround.color};
+        border: 1px 1px solid red;
+        margin: 20px 10px 0px 20px;
+        display: flex;
+        flex-direction: column;
     }
     form button[type="submit"]{
         background: ${(props) => props.theme.button.backGroundGradient1}; 

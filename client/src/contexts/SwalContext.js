@@ -22,28 +22,26 @@ function SwalProviderContext({children}){
             title: mensagem
         })
     }
-    function swalConfirm(texto, tituloConfirmar, textoConfirmar){
-        Swal.fire({
-            title: 'Deseja realmente fazer isso ?',
-            text: texto,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: "Continuar",
-            cancelButtonText: "Cancelar"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    tituloConfirmar,
-                    textoConfirmar,
-                    'success'
-                )
-            }
-        })
+    async function swalConfirm(texto){
+        return await new Promise((resolve, reject) => {
+            Swal.fire({
+                title: 'Deseja realmente fazer isso?',
+                text: texto,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: "Continuar",
+                cancelButtonText: "Cancelar"
+            }).then((result => {
+                    resolve(
+                        result
+                    )
+                })
+            )})
     }
-    function swalAlert(texto){
-        Swal.fire(texto)
+    function swalAlert(titulo, texto, icone){
+        Swal.fire(titulo, texto, icone)
     }
     return(
         <SwalContext.Provider 
