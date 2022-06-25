@@ -20,6 +20,10 @@ class Pessoa extends Model {
             sequelize: connection
         })
     }
+
+    static associate(models){
+        this.hasMany(models.Fatura, {foreignKey: 'id_pessoa', as: 'pessoa_faturas'})
+    }
 }
 
 module.exports = Pessoa;

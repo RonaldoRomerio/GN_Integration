@@ -24,6 +24,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.3",
+    "gn-api-sdk-node": "^2.0.8",
     "sequelize": "^6.15.0",
     "tedious": "^14.3.0"
   },

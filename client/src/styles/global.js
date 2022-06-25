@@ -164,4 +164,20 @@ export default createGlobalStyle`
     tbody tr:nth-child(even){
         background: rgba(100,100,100,0.3);
     }
+    form button[type="submit"]{
+        background: ${(props) => props.theme.button.backGroundGradient1}; 
+        background: -webkit-linear-gradient(to right, ${(props) => props.theme.button.backGroundGradient1}, ${(props) => props.theme.button.backGroundGradient2});
+        background: linear-gradient(to right, ${(props) => props.theme.button.backGroundGradient1}, ${(props) => props.theme.button.backGroundGradient2}); 
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        background-color:  ${(props) => props.theme.colors.color};
+        color: ${(props) => props.theme.button.textInput};
+        width: 15%;
+        height: 32px;
+        font-weight: bold;
+        font-size: 14pt;
+        float: right;
+        margin-top: 5px;
+    }
 `

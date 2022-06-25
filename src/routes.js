@@ -1,12 +1,22 @@
 const express = require('express');
-const userController = require('./controllers/pessoaController')
+const PessoaController = require('./controllers/pessoaController')
+const FaturaController = require('./controllers/FaturaController')
 
 const routes = express.Router();
 
-routes.get('/pessoa', userController.selectAll)
-routes.post('/pessoa', userController.insert)
-routes.put('/pessoa', userController.update)
-routes.get('/pessoa/:id', userController.selectOne)
-routes.patch('/pessoa/:id', userController.deleted)
+//rotas de pessoa
+routes.get('/pessoa', PessoaController.selectAll)
+routes.post('/pessoa', PessoaController.insert)
+routes.put('/pessoa', PessoaController.update)
+routes.get('/pessoa/:id', PessoaController.selectOne)
+routes.patch('/pessoa/:id', PessoaController.deleted)
+
+//Rotas de faturas
+routes.get('/fatura/pessoa/:id', FaturaController.selectAllFaturasDaPessoa)
+routes.get('/fatura', FaturaController.selectAll)
+routes.post('/fatura', FaturaController.insert)
+routes.get('/fatura/:id', FaturaController.selectOne)
+routes.patch('/fatura/:id', FaturaController.deleted)
+routes.get('/fatura/pessoa', PessoaController.selectOneFiltrado)
 
 module.exports = routes;

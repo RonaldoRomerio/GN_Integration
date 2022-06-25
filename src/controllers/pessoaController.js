@@ -5,7 +5,6 @@ module.exports = {
     async insert(req, res) {
         const {nome, cpf, rg, email,
                 telefone, endereco} = req.body;
-        console.log(endereco);
         const pessoaDao = await Pessoa.create({
             nome_pessoa: nome,
             cpf_pessoa: cpf,
@@ -52,9 +51,6 @@ module.exports = {
         }))
     },
     async selectAll(req, res) {
-        
-        console.log('Selecao Encontrada')
-
         const lstpessoas = await Pessoa.findAll({
             where:{deleted_at : null}
         });
@@ -68,6 +64,25 @@ module.exports = {
         const {id} = req.params;
 
         const pessoaDao = await Pessoa.findByPk(id);
+        return (res.json({
+            "pessoa": pessoaDao
+        }))
+    },
+    async selectOneFiltrado(req, res) {
+        
+        const {nome, cpf} = req.body;
+        let filtro = new Object();
+
+        if(nome =! undefined && nome.length > 0)
+            filtro.nome = nome
+        if(cpf =! undefined && cpf.length > 0)
+            filtro.cpf = cpf
+
+        const pessoaDao = await Pessoa.findOne({
+            where:{
+                filtro
+            }
+        });
         return (res.json({
             "pessoa": pessoaDao
         }))
