@@ -1,11 +1,12 @@
 const DateTime = require('tedious/lib/data-types/datetime');
 const Pessoa = require('../models/Pessoa');
+const PessoaService = require('../services/PessoaService');
 
 module.exports = {
     async insert(req, res) {
         const {nome, cpf, rg, email,
                 telefone, endereco} = req.body;
-        const pessoaDao = await Pessoa.create({
+        const pessoaDao = await PessoaService.insert({
             nome_pessoa: nome,
             cpf_pessoa: cpf,
             rg_pessoa: rg,
@@ -27,9 +28,7 @@ module.exports = {
         const {id, nome, cpf, rg, email,
                 telefone, endereco} = req.body;
 
-        const pessoaDao = await Pessoa.findByPk(id);
-
-        pessoaDao.set({
+        const pessoaDao = await PessoaService.update({
             id: id,
             nome_pessoa: nome,
             cpf_pessoa: cpf,
@@ -43,46 +42,25 @@ module.exports = {
             endereco_cidade_pessoa: endereco.cidade,
             endereco_estado_pessoa: endereco.estado,
             endereco_complemento_pessoa: endereco.complemento,
-        })
-        pessoaDao.save()
+        });
 
         return (res.json({
             "pessoa": pessoaDao
         }))
     },
     async selectAll(req, res) {
-        const lstpessoas = await Pessoa.findAll({
-            where:{deleted_at : null}
-        });
+        
+        const lstPessoas = await PessoaService.selectAll()
 
         return (res.json({
-            "pessoas": lstpessoas
+            "pessoas": lstPessoas
         }))
     },
     async selectOne(req, res) {
         
         const {id} = req.params;
 
-        const pessoaDao = await Pessoa.findByPk(id);
-        return (res.json({
-            "pessoa": pessoaDao
-        }))
-    },
-    async selectOneFiltrado(req, res) {
-        
-        const {nome, cpf} = req.body;
-        let filtro = new Object();
-
-        if(nome =! undefined && nome.length > 0)
-            filtro.nome = nome
-        if(cpf =! undefined && cpf.length > 0)
-            filtro.cpf = cpf
-
-        const pessoaDao = await Pessoa.findOne({
-            where:{
-                filtro
-            }
-        });
+        const pessoaDao = await PessoaService.selectOne(id);
         return (res.json({
             "pessoa": pessoaDao
         }))
@@ -91,14 +69,10 @@ module.exports = {
         
         const {id} = req.params;
 
-        const pessoaDao = await Pessoa.findByPk(id);
-
-        pessoaDao.deleted_at = Date.now();
-
-        pessoaDao.save();
+        await PessoaService.deleted(id);
 
         return (res.json({
-            "idPessoa":id
+            "idPessoa": id
         }))
     }
 }

@@ -22,6 +22,7 @@ export default function PgPessoa() {
     const [infoModal, setinfoModal] = useState({});
 
     useEffect(() =>{
+        console.log('acesso Pessoa');
         listarPessoas();
     },[])
     const opcoes = [
