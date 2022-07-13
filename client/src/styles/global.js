@@ -114,7 +114,7 @@ export default createGlobalStyle`
         align-self: stretch;
     }
     .cl6{
-        grid-column: span 5;
+        grid-column: span 6;
         align-self: stretch;
     }
     ::-webkit-scrollbar {

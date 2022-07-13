@@ -12,11 +12,8 @@ routes.get('/pessoa/:id', PessoaController.selectOne)
 routes.patch('/pessoa/:id', PessoaController.deleted)
 
 //Rotas de faturas
-routes.get('/fatura/pessoa/:id', FaturaController.selectAllFaturasDaPessoa)
 routes.get('/fatura', FaturaController.selectAll)
 routes.post('/fatura', FaturaController.insert)
 routes.get('/fatura/:id', FaturaController.selectOne)
 routes.patch('/fatura/:id', FaturaController.deleted)
-routes.get('/fatura/pessoa', PessoaController.selectOneFiltrado)
-
 module.exports = routes;
