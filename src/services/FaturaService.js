@@ -3,8 +3,10 @@ const APIGerencianet = require('../API/GerencianetApi');
 
 module.exports = {
     async insert(fatura) {
+        let faturaReturn = null;
         const faturaDAO = await Fatura.create(fatura);
-        return faturaDAO
+        faturaReturn = this.selectOne(faturaDAO.id)
+        return faturaReturn
     },
     async selectAll() {
         const lstFaturas = await Fatura.findAll({
@@ -13,10 +15,10 @@ module.exports = {
         });
         return lstFaturas    
     },
-    async selectOne() {
-        const {id} = req.params;
-
-        const faturaDao = await Fatura.findByPk(id);
+    async selectOne(id) {
+        const faturaDao = await Fatura.findByPk(id,{
+            include: {association : 'fatura_pessoa'}
+        });
         return faturaDao;
     },
     async deleted(id) {

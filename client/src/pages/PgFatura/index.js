@@ -56,8 +56,20 @@
             });
         }
         function inserirFatura(data, {reset}){
-                formRef.current.setData({idPessoa: 0, valor: 0, desconto: 0, vencimento: '', descricao: ''})
+            rotaFatura
+            .post('/', data)
+            .then((response) => {
+                swalToast('success',"Fatura inserida com sucesso")
+                const fatura = response.data.fatura;
+                console.log(response.data.fatura);
+                setlstFaturas([fatura
+                    ,...lstFaturas])
+                formRef.current.setData({idPessoa: 0,vencimento: '', descricao: ''})
                 alterarLayout()
+            })
+            .catch((err) => {
+                console.error("ops! ocorreu um erro" + err);
+            });
         }
         function statusModal(tipo, idFatura){
             let status = !isModalVisible
