@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Button, Title } from './styled';
 import {AiFillFile, AiFillSetting, AiFillDatabase, AiOutlineUser} from "react-icons/ai";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export default function SideBar() {
+
+    const{signed} = useContext(AuthContext);
+
     return (
+        signed ? (
         <Container>
             <Link to="Pessoa">
                 <Button>
@@ -30,6 +35,7 @@ export default function SideBar() {
                     <Title>Config.</Title>
                 </Button>
             </Link>
-        </Container>
+        </Container>) : 
+        (<div></div>)
     );
 }

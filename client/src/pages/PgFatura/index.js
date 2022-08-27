@@ -1,4 +1,3 @@
-
     import { Form } from '@unform/web';
     import React, {useEffect, useRef, useState, useContext} from 'react';
     import Title from '../../components/Title'
@@ -148,6 +147,7 @@
             </div> 
                 :
             <div className='container'>
+                
                 <Title titulo={'Gerenciar Faturas'} setLayout={alterarLayout} blListar={layoutListar}/>
                 <div className='content'>
                     <div className="formulario">

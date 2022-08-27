@@ -6,3 +6,6 @@ export const rotaPessoa = axios.create({
 export const rotaFatura = axios.create({
   baseURL: 'http://localhost:3333/fatura',
 });
+export const autenticar = axios.create({
+  baseURL: 'http://localhost:3333/auth',
+});

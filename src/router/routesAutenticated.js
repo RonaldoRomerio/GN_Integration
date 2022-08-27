@@ -1,8 +1,10 @@
 const express = require('express');
-const PessoaController = require('./controllers/pessoaController')
-const FaturaController = require('./controllers/FaturaController')
+const authMiddleware = require('../middlewares/Auth')
 
+const PessoaController = require('../controllers/pessoaController')
+const FaturaController = require('../controllers/FaturaController')
 const routes = express.Router();
+routes.use(authMiddleware);
 
 //rotas de pessoa
 routes.get('/pessoa', PessoaController.selectAll)
@@ -16,4 +18,7 @@ routes.get('/fatura', FaturaController.selectAll)
 routes.post('/fatura', FaturaController.insert)
 routes.get('/fatura/:id', FaturaController.selectOne)
 routes.patch('/fatura/:id', FaturaController.deleted)
+
+//Rotas de usuários
+routes.post('/usuario', userController.insert)
 module.exports = routes;
