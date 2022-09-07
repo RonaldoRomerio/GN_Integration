@@ -3,6 +3,7 @@ const authMiddleware = require('../middlewares/Auth')
 
 const PessoaController = require('../controllers/pessoaController')
 const FaturaController = require('../controllers/FaturaController')
+const userController = require('../controllers/userController') 
 const routes = express.Router();
 routes.use(authMiddleware);
 

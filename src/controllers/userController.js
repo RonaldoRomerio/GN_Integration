@@ -25,12 +25,12 @@ module.exports = {
         }))
     },
     async autenticar(req, res) {
-        const {userName, password} = req.body;
+        const {login, senha} = req.body;
         
-        const userDao = await UserService.findUser(userName)
+        const userDao = await UserService.findUser(login)
         
         
-        if(!userDao || !await bcrypt.compare(password, userDao.senha_usuario)){ 
+        if(!userDao || !await bcrypt.compare(senha, userDao.senha_usuario)){ 
             return(res.json({
                 "error" : 'usuario ou senha incorretos'
             }))

@@ -1,11 +1,8 @@
 import axios from "axios";
 
-export const rotaPessoa = axios.create({
-  baseURL: 'http://localhost:3333/pessoa',
-});
-export const rotaFatura = axios.create({
-  baseURL: 'http://localhost:3333/fatura',
+export const api = axios.create({
+  baseURL: 'http://localhost:3333/',
 });
 export const autenticar = axios.create({
-  baseURL: 'http://localhost:3333/auth',
+  baseURL: 'http://localhost:3333/login',
 });

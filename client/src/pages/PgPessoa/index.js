@@ -6,7 +6,7 @@ import Select from '../../components/Input/Select'
 import Auxiliar from './Auxiliar.js';
 import { Scope} from '@unform/core';
 import ViaCep from '../../services/ViaCep'
-import {rotaPessoa} from '../../services/API'
+import {api} from '../../services/API'
 import {SwalContext} from '../../contexts/SwalContext'
 import {BiTrash, BiEditAlt, BiInfoCircle} from 'react-icons/bi'
 import Modal from '../../components/Modal';
@@ -59,16 +59,16 @@ export default function PgPessoa() {
         });
     }
     async function listarPessoas(){
-        await rotaPessoa
-        .get('/')
+        await api
+        .get('pessoa')
         .then((response) => setLstPessoas(response.data.pessoas))
         .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
     }
-    function inserirPessoa(data, {reset}){
-        rotaPessoa
-        .post('/', data)
+    async function inserirPessoa(data, {reset}){
+        await api
+        .post('pessoa/', data)
         .then((response) => {
             swalToast('success',"Pessoa inserida com sucesso")
             const pessoa = response.data.pessoa;
@@ -97,8 +97,8 @@ export default function PgPessoa() {
         swalConfirm("Deseja realmente excluir essa pessoa? Essa ação não é reversível")
         .then((result) => {
             if (result.isConfirmed) {
-                rotaPessoa
-                .patch("/" + idPessoa)
+                api
+                .patch("pessoa/" + idPessoa)
                 .then((response) => {
                     let novalst = lstPessoas.filter(e => e.id != response.data.idPessoa);
                     setLstPessoas(novalst);

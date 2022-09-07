@@ -5,7 +5,7 @@ import Input from '../../components/Input/Input'
 import Select from '../../components/Input/Select'
 import { Scope} from '@unform/core';
 import ViaCep from '../../services/ViaCep'
-import {rotaPessoa} from '../../services/API'
+import {api} from '../../services/API'
 import {SwalContext} from '../../contexts/SwalContext'
 
 export default function Auxiliar({infoModal, listarPessoas, statusModal}) {
@@ -49,8 +49,8 @@ export default function Auxiliar({infoModal, listarPessoas, statusModal}) {
         });
     }
     async function listarPessoa(){
-        await rotaPessoa
-        .get(`/${infoModal.idPessoa}`)
+        await api
+        .get(`pessoa/${infoModal.idPessoa}`)
         //.then((response) => {console.log(response)})
         .then((response) => formularioRef.current.setData({
             id:response.data.pessoa.id,
@@ -76,8 +76,8 @@ export default function Auxiliar({infoModal, listarPessoas, statusModal}) {
     }
     function editarPessoa(data, {reset}){
         console.log("editando", data);
-        rotaPessoa
-        .put('/', data)
+        api
+        .put('pessoa/', data)
         .then((response) => {
             swalToast('success',"Pessoa Editada com sucesso")
             listarPessoas();

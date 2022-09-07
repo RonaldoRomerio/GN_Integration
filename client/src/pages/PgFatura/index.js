@@ -4,7 +4,7 @@
     import Input from '../../components/Input/Input'
     import SelectAsync from '../../components/Input/SelectAsync'
     import Auxiliar from './Auxiliar.js';
-    import {rotaFatura,rotaPessoa} from '../../services/API'
+    import {api} from '../../services/API'
     import {SwalContext} from '../../contexts/SwalContext'
     import {BiTrash, BiEditAlt, BiInfoCircle} from 'react-icons/bi'
     import Modal from '../../components/Modal';
@@ -33,8 +33,8 @@
             }
         }
         async function listarPessoas(){
-            await rotaPessoa
-            .get('/')
+            await api
+            .get('fatura/')
             .then((response) => {
                 const listaTodos = response.data.pessoas;
                 let listaAux = [];
@@ -47,16 +47,16 @@
             });
         }
         async function listarFaturas(){
-            await rotaFatura
-            .get('/')
+            await api
+            .get('fatura/')
             .then((response) => setlstFaturas(response.data.faturas))
             .catch((err) => {
                 console.error("ops! ocorreu um erro" + err);
             });
         }
         function inserirFatura(data, {reset}){
-            rotaFatura
-            .post('/', data)
+            api
+            .post('fatura/', data)
             .then((response) => {
                 swalToast('success',"Fatura inserida com sucesso")
                 const fatura = response.data.fatura;
@@ -85,8 +85,8 @@
             swalConfirm("Deseja realmente excluir essa fatura? Essa ação não é reversível")
             .then((result) => {
                 if (result.isConfirmed) {
-                    rotaFatura
-                    .patch("/" + idFatura)
+                    api
+                    .patch("fatura/" + idFatura)
                     .then((response) => {
                         let novalst = lstFaturas.filter(e => e.id != response.data.idFatura);
                         setlstFaturas(novalst);
